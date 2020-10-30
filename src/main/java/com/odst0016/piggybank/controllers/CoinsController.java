@@ -37,11 +37,6 @@ public class CoinsController {
         List<Coins> myList = new ArrayList<>();
         coinsRepository.findAll().iterator().forEachRemaining(myList::add);
         double total = 0;
-        String quarter;
-        String dime;
-        String dollar;
-        String nickel;
-        String penny;
         for (Coins c : myList) {
             total = total + (c.getValue() * c.getQuantity());
         }
@@ -58,5 +53,7 @@ public class CoinsController {
         System.out.print("The piggy bank holds " + total);
 
         return new ResponseEntity<>(total, HttpStatus.OK);
+
+
     }
 }
